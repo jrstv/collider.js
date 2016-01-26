@@ -16,6 +16,7 @@ var http = require('http');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
+
 /**
  * Create HTTP server.
  */
@@ -36,7 +37,11 @@ if (app.get('websocket endpoints')) {
  * Listen on provided port, on loopback interfaces.
  */
 
-server.listen(port, '127.0.0.1');
+if (!Number.isInteger(port) || !process.env.HOST) {
+  server.listen(port);
+} else {
+  server.listen(port, process.env.HOST);
+}
 server.on('error', onError);
 server.on('listening', onListening);
 
