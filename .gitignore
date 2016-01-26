@@ -1,0 +1,11 @@
+# directories
+/node_modules
+
+# vim temp files
+.*.sw*
+
+# os x
+.DS_Store
+
+# Deploy
+/.Rsync
