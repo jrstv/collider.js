@@ -7,20 +7,21 @@ var path = require('path');
 
 var Collider = require('./lib/collider');
 
-
 // Application
 var app = express();
 
+// settings
+app.set('case sensitive routing', true);
+app.set('strict routing', true);
 app.set('websocket endpoints', {'/ws': require('./routes/ws')});
 
-app.use(logger('dev'));
+app.use(logger(app.get('env') === 'development' ? 'dev' : 'combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // locals
 app.locals['collider'] = new Collider();
 
-// routes
 app.use('/', require('./routes/index'));
 app.use('/status', require('./routes/status'));
 app.use('/ws', require('./routes/ws'));
