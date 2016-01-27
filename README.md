@@ -1,3 +1,3 @@
 # collider.js
 
-AppRTC's collider service node.js port
+AppRTC's collider server node.js port

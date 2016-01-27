@@ -16,7 +16,7 @@
     "utf-8-validate": "^1.2.1",
     "ws": "^1.0.1"
   },
-  "description": "AppRTC's Collider server port",
+  "description": "AppRTC's collider server node.js port",
   "main": "app.js",
   "keywords": [
     "apprtc",
