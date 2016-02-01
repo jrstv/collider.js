@@ -11,13 +11,14 @@ var Collider = require('./lib/collider');
 var app = express();
 
 // settings
-app.set('case sensitive routing', true);
-app.set('strict routing', true);
 app.set('websocket endpoints', {'/ws': require('./routes/ws')});
+app.set('strict routing', true);
+app.set('case sensitive routing', true);
 
 app.use(logger(app.get('env') === 'development' ? 'dev' : 'combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.text());
 
 // locals
 app.locals['collider'] = new Collider();
