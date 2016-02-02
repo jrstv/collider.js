@@ -26,7 +26,7 @@ if (app.get('websocket endpoints')) {
   var endpoints = app.get('websocket endpoints');
 
   Object.keys(endpoints).forEach(k => {
-    var opt = {server: server, path: k, clientTracking: false};
+    var opt = { server: server, path: k, clientTracking: false };
     var endp = endpoints[k];
     require('ws').createServer(opt, ws => endp.onUpgrade(ws, app));
   });
